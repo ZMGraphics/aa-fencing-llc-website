@@ -17,9 +17,12 @@ const BUSINESS_INFO = {
     landscapeConcrete: { name: "Scott Blain", phone: "585-746-0776", email: "scottslandscapingny@gmail.com" }
   },
   testimonials: [
-    { text: "Couldn't be happier with how our new fence turned out! Even better than we hoped!", author: "Rebecca B.", location: "Chili, NY" },
-    { text: "Scott's Landscape did exactly what we needed, when we needed it. Highly recommended.", author: "Matt M.", location: "Spencerport, NY" },
-    { text: "The process was smooth, the price was fair, and the work was excellent!", author: "Ken M.", location: "Spencerport, NY" }
+    { text: "Couldn't be happier with how our new fence turned out! Even better than we hoped!", author: "Rebecca B.", location: "Chili, NY", stars: 5 },
+    { text: "Scott's Landscape did exactly what we needed, when we needed it. Highly recommended.", author: "Matt M.", location: "Spencerport, NY", stars: 5 },
+    { text: "The process was smooth, the price was fair, and the work was excellent!", author: "Ken M.", location: "Spencerport, NY", stars: 5 },
+    { text: "In 2015 I had a pool removed, I needed the spot filled in and seeded. They gave me a quote which I thought was high, I checked other places, their prices were higher, so I contracted with Scott. You can't even tell where the pool was. I highly recommend them.", author: "Robert P.", location: "Rochester, NY", stars: 5 },
+    { text: "They did a great job with a concrete patio and landscaping on my backyard.", author: "Jake C.", location: "Spencerport, NY", stars: 5 },
+    { text: "Scott, CJ, and his team were efficient, friendly, on time, did excellent work, and cleaned up after themselves well. CJ kept in communication with me frequently updating me on the status of our job.", author: "Verified Customer", location: "Monroe County, NY", stars: 5 }
   ]
 };
 
@@ -29,28 +32,9 @@ const GALLERY_PHOTOS = Array.from({ length: 18 }, (_, i) => ({
 }));
 
 export default function AAFencingSite() {
-  const [material, setMaterial] = useState('wood');
-  const [sizeTier, setSizeTier] = useState(200);
   const [sliderPos, setSliderPos] = useState(50);
   const [isDragging, setIsDragging] = useState(false);
   const [lightboxIdx, setLightboxIdx] = useState(null);
-
-  const priceMatrix = {
-    wood: { label: "Custom Wood Privacy", base: 32 },
-    vinyl: { label: "Low-Maintenance Vinyl", base: 45 },
-    chainlink: { label: "Security Chain-Link", base: 22 },
-    ornamental: { label: "Ornamental Iron/Custom", base: 65 }
-  };
-
-  const calculateEstimate = () => {
-    const cost = sizeTier * priceMatrix[material].base;
-    return {
-      low: Math.round((cost * 0.9) / 100) * 100,
-      high: Math.round((cost * 1.1) / 100) * 100
-    };
-  };
-
-  const estimate = calculateEstimate();
 
   const handleMove = (clientX, currentTarget) => {
     const rect = currentTarget.getBoundingClientRect();
@@ -76,7 +60,7 @@ export default function AAFencingSite() {
         </div>
         <div className="hidden md:flex space-x-6 items-center text-sm font-medium text-white/80">
           <a href="#gallery" className="hover:text-[#1f8b2e] transition-colors">Our Work</a>
-          <a href="#estimator" className="hover:text-[#1f8b2e] transition-colors">Cost Calculator</a>
+          <a href="#reviews" className="hover:text-[#1f8b2e] transition-colors">Reviews</a>
           <a href="#services" className="hover:text-[#1f8b2e] transition-colors">Services</a>
           <a href="#contact" className="bg-[#1f8b2e] hover:bg-[#177a25] text-white px-4 py-2 rounded font-bold transition-all transform active:scale-95 shadow-lg shadow-[#1f8b2e]/20">
             Get an Estimate
@@ -135,8 +119,8 @@ export default function AAFencingSite() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="pt-2 flex flex-col sm:flex-row gap-4"
               >
-                <a href="#estimator" className="bg-[#1f8b2e] hover:bg-[#177a25] text-white text-center font-bold px-6 py-3.5 rounded-lg transition-all shadow-xl shadow-[#1f8b2e]/30 transform active:scale-95">
-                  Try The Yard Estimator
+                <a href="#contact" className="bg-[#1f8b2e] hover:bg-[#177a25] text-white text-center font-bold px-6 py-3.5 rounded-lg transition-all shadow-xl shadow-[#1f8b2e]/30 transform active:scale-95">
+                  Request a Free Quote
                 </a>
                 <a href="#contact" className="border border-white/20 bg-white/5 hover:bg-white/10 text-white text-center font-semibold px-6 py-3.5 rounded-lg transition-all">
                   Call Us for Free Estimates
@@ -343,96 +327,45 @@ export default function AAFencingSite() {
         </div>
       </section>
 
-      {/* BUDGET ESTIMATOR */}
-      <section id="estimator" className="py-16 px-4 bg-black text-white border-y border-white/10">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center max-w-xl mx-auto mb-10">
-            <motion.h2
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.4 }}
-              className="text-3xl font-bold tracking-tight"
-            >
-              Calculate Your Footprint
-            </motion.h2>
-            <p className="text-white/50 text-sm mt-2">
-              Select your fence style and yard perimeter scope. No forced phone forms just to look at baseline numbers. We keep it transparent.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-            <div className="md:col-span-7 space-y-6">
-              <div>
-                <label className="block text-xs uppercase tracking-wider text-white/50 mb-3">1. Select Fencing Variant</label>
-                <div className="grid grid-cols-2 gap-3">
-                  {Object.entries(priceMatrix).map(([key, value]) => (
-                    <motion.button
-                      key={key}
-                      whileTap={{ scale: 0.97 }}
-                      onClick={() => setMaterial(key)}
-                      className={`p-4 rounded-xl border text-left transition-all h-20 flex items-end ${
-                        material === key
-                          ? 'border-[#1f8b2e] bg-[#1f8b2e]/10 shadow-lg shadow-[#1f8b2e]/10'
-                          : 'border-white/10 bg-white/5 hover:border-white/20'
-                      }`}
-                    >
-                      <span className="font-semibold text-sm block leading-tight text-white">{value.label}</span>
-                    </motion.button>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs uppercase tracking-wider text-white/50 mb-3">2. Estimated Yard Size (Linear Footage)</label>
-                <div className="grid grid-cols-3 gap-2">
-                  {[100, 150, 200, 250, 300, 400].map((ft) => (
-                    <motion.button
-                      key={ft}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={() => setSizeTier(ft)}
-                      className={`py-3 px-2 text-center rounded-lg font-semibold text-sm transition-all border ${
-                        sizeTier === ft
-                          ? 'bg-[#1f8b2e] text-white border-[#1f8b2e]'
-                          : 'bg-white/5 text-white/70 border-white/10 hover:border-white/20'
-                      }`}
-                    >
-                      {ft} Linear Ft
-                    </motion.button>
-                  ))}
-                </div>
-              </div>
+      {/* FREE ESTIMATE CTA — matching Scott's Landscape approach */}
+      <section className="py-16 px-4 bg-black text-white border-y border-white/10">
+        <div className="max-w-3xl mx-auto text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.4 }}
+            className="text-3xl font-bold tracking-tight"
+          >
+            Request a Free Quote Today
+          </motion.h2>
+          <p className="text-white/50 text-sm mt-3 max-w-xl mx-auto leading-relaxed">
+            Every yard is different. We don't believe in cookie-cutter pricing — we come out, walk your property, and give you an honest quote with no hidden fees. Just like Scott's Landscape has done since 1992.
+          </p>
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="bg-white/5 border border-white/10 rounded-xl p-5">
+              <span className="text-[#1f8b2e] text-xs uppercase tracking-wider block mb-2">Step 1</span>
+              <span className="font-bold text-white block">Call or Text Us</span>
+              <span className="text-white/40 text-xs block mt-1">Reach the person who'll do your job — no call centers</span>
             </div>
-
-            <motion.div
-              key={`${material}-${sizeTier}`}
-              initial={{ opacity: 0.6, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.25 }}
-              className="md:col-span-5 bg-[#111] border border-white/10 rounded-2xl p-6 shadow-xl sticky top-24"
-            >
-              <span className="text-[10px] tracking-widest text-[#1f8b2e] uppercase block mb-1">PROVISIONAL COST ASSESSMENT</span>
-              <h3 className="text-lg font-semibold text-white border-b border-white/10 pb-3">{priceMatrix[material].label}</h3>
-
-              <div className="py-6 space-y-1">
-                <span className="text-xs text-white/50 block">Projected Cost Range:</span>
-                <div className="text-3xl sm:text-4xl font-bold text-[#1f8b2e]">
-                  ${estimate.low.toLocaleString()} - ${estimate.high.toLocaleString()}
-                </div>
-                <span className="text-[11px] text-white/40 block pt-2">Includes standard labor, post configuration, hardware, & digging.</span>
-              </div>
-
-              <div className="bg-white/5 border border-white/10 p-3.5 rounded-xl text-xs text-white/50 space-y-2">
-                <div className="text-white/80 font-semibold">Rochester Frost-Line Protection</div>
-                <p className="leading-relaxed">
-                  We auger deep to guarantee your posts resist severe frost-heave cycles during grueling Monroe County seasonal transitions.
-                </p>
-              </div>
-
-              <a href="#contact" className="w-full mt-5 block text-center bg-[#1f8b2e] hover:bg-[#177a25] text-white font-bold py-3 rounded-xl transition-colors shadow-lg">
-                Lock In Real Walkthrough
-              </a>
-            </motion.div>
+            <div className="bg-white/5 border border-white/10 rounded-xl p-5">
+              <span className="text-[#1f8b2e] text-xs uppercase tracking-wider block mb-2">Step 2</span>
+              <span className="font-bold text-white block">Free Yard Walkthrough</span>
+              <span className="text-white/40 text-xs block mt-1">We measure, assess, and discuss materials on-site</span>
+            </div>
+            <div className="bg-white/5 border border-white/10 rounded-xl p-5">
+              <span className="text-[#1f8b2e] text-xs uppercase tracking-wider block mb-2">Step 3</span>
+              <span className="font-bold text-white block">Get Your Quote</span>
+              <span className="text-white/40 text-xs block mt-1">Transparent pricing — no surprises, no pressure</span>
+            </div>
+          </div>
+          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+            <a href={`tel:${BUSINESS_INFO.contacts.commercial.phone}`} className="bg-[#1f8b2e] hover:bg-[#177a25] text-white font-bold px-8 py-3.5 rounded-lg transition-all shadow-xl shadow-[#1f8b2e]/30 transform active:scale-95">
+              Call Aaron — {BUSINESS_INFO.contacts.commercial.phone}
+            </a>
+            <a href={`tel:${BUSINESS_INFO.contacts.residential.phone}`} className="border border-white/20 bg-white/5 hover:bg-white/10 text-white font-semibold px-8 py-3.5 rounded-lg transition-all">
+              Call CJ — {BUSINESS_INFO.contacts.residential.phone}
+            </a>
           </div>
         </div>
       </section>
@@ -491,29 +424,44 @@ export default function AAFencingSite() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section className="py-16 px-4 bg-[#eee] border-t border-black/10 overflow-hidden">
+      {/* REVIEWS */}
+      <section id="reviews" className="py-16 px-4 bg-[#eee] border-t border-black/10 overflow-hidden">
         <div className="max-w-5xl mx-auto">
-          <motion.h2
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.4 }}
-            className="text-2xl sm:text-3xl font-bold tracking-tight text-center mb-10"
-          >
-            Backed by Genuine Local Reputation
-          </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="text-center mb-10">
+            <span className="text-[#1f8b2e] text-xs uppercase tracking-wider block mb-1">Real Reviews From Real Customers</span>
+            <motion.h2
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.4 }}
+              className="text-2xl sm:text-3xl font-bold tracking-tight"
+            >
+              Backed by Genuine Local Reputation
+            </motion.h2>
+            <div className="mt-3 inline-flex items-center gap-2 bg-white border border-black/10 rounded-full px-4 py-2 shadow-sm">
+              <div className="flex text-[#1f8b2e] text-lg">
+                {"★★★★★".split("").map((s, i) => <span key={i}>{s}</span>)}
+              </div>
+              <span className="text-sm font-semibold text-[#1c1c1c]">4.25 / 5</span>
+              <span className="text-xs text-[#1c1c1c]/50">from 53 reviews</span>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {BUSINESS_INFO.testimonials.map((t, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-30px" }}
-                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
                 className="bg-white p-6 rounded-xl border border-black/10 shadow-sm flex flex-col justify-between"
               >
-                <p className="text-[#1c1c1c]/80 italic text-sm leading-relaxed">"{t.text}"</p>
+                <div>
+                  <div className="flex text-[#1f8b2e] text-sm mb-3">
+                    {Array.from({ length: t.stars }, (_, i) => <span key={i}>★</span>)}
+                  </div>
+                  <p className="text-[#1c1c1c]/80 italic text-sm leading-relaxed">"{t.text}"</p>
+                </div>
                 <div className="mt-4 pt-3 border-t border-black/5 flex justify-between items-center text-xs text-[#1c1c1c]/50">
                   <span className="font-bold text-[#1c1c1c]">{t.author}</span>
                   <span>{t.location}</span>
@@ -598,10 +546,10 @@ export default function AAFencingSite() {
           Scott (Res)
         </a>
         <a
-          href="#estimator"
+          href="#contact"
           className="flex-1 bg-[#1f8b2e] text-white rounded-xl py-3 px-2 text-center text-xs font-bold tracking-tight shadow-md shadow-[#1f8b2e]/40"
         >
-          Calculate
+          Free Quote
         </a>
       </div>
 
