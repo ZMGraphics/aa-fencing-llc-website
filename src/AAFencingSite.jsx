@@ -111,7 +111,7 @@ export default function AAFencingSite() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-white/70 text-base sm:text-lg max-w-xl leading-relaxed"
               >
-                Over 30 years of residential and commercial fencing excellence in Rochester, NY. We don't cut corners, and we don't dump dry concrete mix into dry dirt holes. Anthony Reese and Scott Blain have been setting deep, rugged perimeters and custom concrete flatwork across Western New York since 1992.
+                Over 30 years of residential and commercial fencing excellence in Rochester, NY. We don't cut corners, and we don't dump dry concrete mix into dry dirt holes. AA Fencing LLC has been setting deep, rugged perimeters and custom concrete flatwork across Western New York since 1992.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
