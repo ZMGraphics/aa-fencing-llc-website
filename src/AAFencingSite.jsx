@@ -10,7 +10,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const BUSINESS_INFO = {
   established: 1992,
-  owners: "Anthony Reese & Scott Blain",
+  owners: "Aaron Reese & Scott Blain",
   contacts: {
     commercial: { name: "Anthony Reese", phone: "503-560-5812", email: "Anthony@scottslfc.com" },
     residential: { name: "CJ", phone: "585-329-6533" },
@@ -49,10 +49,7 @@ export default function AAFencingSite() {
       {/* HEADER NAVBAR */}
       <header className="sticky top-0 z-40 w-full bg-black/95 backdrop-blur-md border-b border-white/10 py-4 px-4 sm:px-8 flex justify-between items-center">
         <div className="flex items-center gap-3">
-          {/* Logo placeholder */}
-          <div className="h-10 w-28 border-2 border-dashed border-[#1f8b2e]/60 rounded flex items-center justify-center text-[10px] text-[#1f8b2e] font-semibold tracking-wider uppercase">
-            LOGO GOES HERE
-          </div>
+          <img src="/images/site/AA-Logo-02.png" alt="AA Fencing LLC" className="h-10 w-auto" />
           <div>
             <span className="text-xl font-bold tracking-tight text-white block">AA FENCING <span className="text-[#1f8b2e]">LLC</span></span>
             <span className="text-[10px] text-white/50 tracking-widest uppercase block -mt-1">w/ Scott's Landscape & Fence</span>
@@ -111,7 +108,7 @@ export default function AAFencingSite() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-white/70 text-base sm:text-lg max-w-xl leading-relaxed"
               >
-                Over 30 years of residential and commercial fencing excellence in Rochester, NY. We don't cut corners, and we don't dump dry concrete mix into dry dirt holes. AA Fencing LLC has been setting deep, rugged perimeters and custom concrete flatwork across Western New York since 1992.
+                Over 30 years of commercial and residential fencing excellence in Rochester, NY. AA Fencing LLC is a union contractor specializing in commercial security fencing, bollards, signage, and full-scope perimeter installations across Western New York since 1992. We don't cut corners, and we don't dump dry concrete mix into dry dirt holes.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -133,7 +130,7 @@ export default function AAFencingSite() {
                 transition={{ duration: 0.5, delay: 0.5 }}
                 className="pt-4"
               >
-                <img src="/images/site/sleekfence-badge.png" alt="Sleekfence Certified Contractor" className="h-14 w-auto opacity-70" />
+                <img src="/images/site/sleekfence-badge.png" alt="Sleekfence Certified Contractor" className="h-20 w-auto opacity-70" />
               </motion.div>
             </div>
 
@@ -151,7 +148,7 @@ export default function AAFencingSite() {
                 </div>
                 <div className="space-y-4 text-sm">
                   <div className="p-3 bg-white/5 rounded-lg border border-white/10">
-                    <span className="text-xs text-[#1f8b2e] block">COMMERCIAL SECURITY & CONTRACTING</span>
+                    <span className="text-xs text-[#1f8b2e] block">COMMERCIAL ESTIMATOR</span>
                     <span className="font-bold text-white block text-base mt-0.5">{BUSINESS_INFO.contacts.commercial.name}</span>
                     <a href={`tel:${BUSINESS_INFO.contacts.commercial.phone}`} className="text-white/50 hover:text-white text-xs underline block mt-1">{BUSINESS_INFO.contacts.commercial.phone}</a>
                   </div>
@@ -174,10 +171,10 @@ export default function AAFencingSite() {
         {/* TICKER */}
         <div className="relative bg-black/80 border-t border-white/10 py-3 overflow-hidden select-none whitespace-nowrap">
           <div className="inline-block animate-marquee text-xs tracking-widest text-white/40 uppercase">
-            NO POORLY CONTRACTED SUB-CREWS • 36-INCH DEEP FROST-LINE POSTS • REAL WET CONCRETE MIXES • LICENSED & INSURED MONROE COUNTY CONTRACTORS • 30+ YEARS IN ROCHESTER • WOOD • VINYL • CHAIN LINK • ORNAMENTAL •&nbsp;
+            UNION CONTRACTOR • COMMERCIAL FENCING • BOLLARDS • SIGNAGE • 36-INCH DEEP FROST-LINE POSTS • REAL WET CONCRETE MIXES • LICENSED & INSURED MONROE COUNTY CONTRACTORS • 30+ YEARS IN ROCHESTER • WOOD • VINYL • CHAIN LINK • ORNAMENTAL •&nbsp;
           </div>
           <div className="inline-block animate-marquee text-xs tracking-widest text-white/40 uppercase">
-            NO POORLY CONTRACTED SUB-CREWS • 36-INCH DEEP FROST-LINE POSTS • REAL WET CONCRETE MIXES • LICENSED & INSURED MONROE COUNTY CONTRACTORS • 30+ YEARS IN ROCHESTER • WOOD • VINYL • CHAIN LINK • ORNAMENTAL •&nbsp;
+            UNION CONTRACTOR • COMMERCIAL FENCING • BOLLARDS • SIGNAGE • 36-INCH DEEP FROST-LINE POSTS • REAL WET CONCRETE MIXES • LICENSED & INSURED MONROE COUNTY CONTRACTORS • 30+ YEARS IN ROCHESTER • WOOD • VINYL • CHAIN LINK • ORNAMENTAL •&nbsp;
           </div>
         </div>
       </section>
@@ -384,7 +381,7 @@ export default function AAFencingSite() {
             More Than Just Post Setting
           </motion.h2>
           <p className="text-[#1c1c1c]/60 text-sm mt-1">
-            Anthony, Scott, and our crew handle the full scope so you don't need to wrangle 4 different contractors.
+            Union contractor serving commercial and residential clients — our crew handles the full scope so you don't need to wrangle 4 different contractors.
           </p>
         </div>
 
@@ -397,8 +394,8 @@ export default function AAFencingSite() {
             },
             {
               img: "/images/site/commercial.png",
-              title: "Commercial Fencing",
-              desc: "Security perimeters, municipal safety bounds, and high-volume commercial installations. We handle structural accounts, site security, and full contracting for businesses across Monroe County."
+              title: "Commercial Fencing, Bollards & Signage",
+              desc: "Union contractor specializing in commercial security fencing, bollard installations, and signage. High-volume perimeter builds, municipal safety bounds, and full-scope contracting for businesses across Monroe County."
             },
             {
               img: "/images/site/landscape.png",
@@ -488,17 +485,31 @@ export default function AAFencingSite() {
           No automated phone trees, no sales reps. Tap below to talk directly with the person who'll oversee your installation.
         </p>
 
+        {/* Owners */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="bg-black text-white p-6 rounded-xl border border-white/10 shadow-md mb-4 text-center"
+        >
+          <img src="/images/site/AA-Logo-02.png" alt="AA Fencing LLC" className="h-12 w-auto mx-auto mb-3" />
+          <span className="text-xs text-[#1f8b2e] uppercase tracking-widest block mb-1">Owners</span>
+          <h3 className="text-xl font-bold">Aaron Reese & Scott Blain</h3>
+          <p className="text-xs text-white/50 mt-1">AA Fencing LLC — Union Contractor — Serving Rochester & Western NY Since 1992</p>
+        </motion.div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
-            className="bg-black text-white p-6 rounded-xl border border-white/10 shadow-md"
+            className="bg-[#111] text-white p-6 rounded-xl border border-white/10 shadow-md"
           >
-            <span className="text-xs text-[#1f8b2e] uppercase tracking-widest block mb-1">Commercial Contracting</span>
+            <span className="text-xs text-[#1f8b2e] uppercase tracking-widest block mb-1">Commercial Estimator</span>
             <h3 className="text-xl font-bold">{BUSINESS_INFO.contacts.commercial.name}</h3>
-            <p className="text-xs text-white/50 mt-1 mb-4">Direct structural accounts, municipal safety bounds, and high-volume operations.</p>
+            <p className="text-xs text-white/50 mt-1 mb-4">Commercial fencing estimates, bollards, signage, and union contract work.</p>
             <a href={`tel:${BUSINESS_INFO.contacts.commercial.phone}`} className="inline-block w-full text-center bg-[#1f8b2e] hover:bg-[#177a25] text-white font-bold py-2.5 rounded-lg text-sm transition-colors">
               Call {BUSINESS_INFO.contacts.commercial.phone}
             </a>
@@ -520,11 +531,8 @@ export default function AAFencingSite() {
           </motion.div>
         </div>
 
-        {/* Footer logo placeholder */}
         <div className="mt-10 flex justify-center">
-          <div className="h-16 w-40 border-2 border-dashed border-[#1f8b2e]/40 rounded-lg flex items-center justify-center text-xs text-[#1f8b2e]/60 font-semibold tracking-wider uppercase">
-            LOGO GOES HERE
-          </div>
+          <img src="/images/site/AA-Logo-03.png" alt="AA Fencing LLC" className="h-16 w-auto" />
         </div>
         <div className="mt-4 text-center text-xs text-[#1c1c1c]/40">
           AA Fencing LLC • PO Box 60406 • Rochester, NY 14606
@@ -543,7 +551,7 @@ export default function AAFencingSite() {
           href={`tel:${BUSINESS_INFO.contacts.landscapeConcrete.phone}`}
           className="flex-1 bg-white/10 border border-white/15 text-white rounded-xl py-3 px-2 text-center text-xs font-bold tracking-tight flex items-center justify-center gap-1.5"
         >
-          Scott (Res)
+          Scott (Land)
         </a>
         <a
           href="#contact"
