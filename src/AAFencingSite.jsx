@@ -47,9 +47,9 @@ export default function AAFencingSite() {
     <div className="min-h-screen bg-[#f5f5f5] text-[#1c1c1c] antialiased selection:bg-[#1f8b2e] selection:text-white pb-24 lg:pb-0">
 
       {/* HEADER NAVBAR */}
-      <header className="sticky top-0 z-40 w-full bg-black/95 backdrop-blur-md border-b border-white/10 py-4 px-4 sm:px-8 flex justify-between items-center">
+      <header className="sticky top-0 z-40 w-full bg-black/95 backdrop-blur-md border-b border-white/10 py-2 px-4 sm:py-4 sm:px-8 flex justify-between items-center">
         <div className="flex items-center gap-3">
-          <img src="/images/site/AA-Logo-02.png" alt="AA Fencing LLC" className="h-16 sm:h-20 w-auto" />
+          <img src="/images/site/AA-Logo-02.png" alt="AA Fencing LLC" className="h-12 sm:h-20 w-auto" />
           <div>
             <span className="text-xl font-bold tracking-tight text-white block">AA FENCING <span className="text-[#1f8b2e]">LLC</span></span>
             <span className="text-[10px] text-white/50 tracking-widest uppercase block -mt-1">w/ Scott's Landscape & Fence</span>
