@@ -49,7 +49,7 @@ export default function AAFencingSite() {
       {/* HEADER NAVBAR */}
       <header className="sticky top-0 z-40 w-full bg-black/95 backdrop-blur-md border-b border-white/10 py-4 px-4 sm:px-8 flex justify-between items-center">
         <div className="flex items-center gap-3">
-          <img src="/images/site/AA-Logo-02.png" alt="AA Fencing LLC" className="h-10 w-auto" />
+          <img src="/images/site/AA-Logo-02.png" alt="AA Fencing LLC" className="h-12 sm:h-14 w-auto" />
           <div>
             <span className="text-xl font-bold tracking-tight text-white block">AA FENCING <span className="text-[#1f8b2e]">LLC</span></span>
             <span className="text-[10px] text-white/50 tracking-widest uppercase block -mt-1">w/ Scott's Landscape & Fence</span>
@@ -493,7 +493,7 @@ export default function AAFencingSite() {
           transition={{ duration: 0.4 }}
           className="bg-black text-white p-6 rounded-xl border border-white/10 shadow-md mb-4 text-center"
         >
-          <img src="/images/site/AA-Logo-02.png" alt="AA Fencing LLC" className="h-12 w-auto mx-auto mb-3" />
+          <img src="/images/site/AA-Logo-02.png" alt="AA Fencing LLC" className="h-20 w-auto mx-auto mb-3" />
           <span className="text-xs text-[#1f8b2e] uppercase tracking-widest block mb-1">Owners</span>
           <h3 className="text-xl font-bold">Aaron Reese & Scott Blain</h3>
           <p className="text-xs text-white/50 mt-1">AA Fencing LLC — Union Contractor — Serving Rochester & Western NY Since 1992</p>
@@ -532,7 +532,7 @@ export default function AAFencingSite() {
         </div>
 
         <div className="mt-10 flex justify-center">
-          <img src="/images/site/AA-Logo-03.png" alt="AA Fencing LLC" className="h-16 w-auto" />
+          <img src="/images/site/AA-Logo-03.png" alt="AA Fencing LLC" className="h-24 w-auto" />
         </div>
         <div className="mt-4 text-center text-xs text-[#1c1c1c]/40">
           AA Fencing LLC • PO Box 60406 • Rochester, NY 14606
