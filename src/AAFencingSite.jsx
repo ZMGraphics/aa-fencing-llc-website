@@ -77,9 +77,9 @@ export default function AAFencingSite() {
           <img
             src="/images/site/hero-slider.png"
             alt="AA Fencing LLC fencing work in Rochester, NY"
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover opacity-50"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/30" />
         </div>
 
         <div className="relative py-16 px-4 sm:px-8 lg:py-28">
