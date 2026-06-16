@@ -10,9 +10,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const BUSINESS_INFO = {
   established: 1992,
-  owners: "Aaron Reese & Scott Blain",
+  owners: "Anthony Reese & Scott Blain",
   contacts: {
-    commercial: { name: "Aaron Reese", phone: "585-503-4199", email: "aafencingllc@gmail.com" },
+    commercial: { name: "Anthony Reese", phone: "503-560-5812", email: "Anthony@scottslfc.com" },
     residential: { name: "CJ", phone: "585-329-6533" },
     landscapeConcrete: { name: "Scott Blain", phone: "585-746-0776", email: "scottslandscapingny@gmail.com" }
   },
@@ -111,7 +111,7 @@ export default function AAFencingSite() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="text-white/70 text-base sm:text-lg max-w-xl leading-relaxed"
               >
-                Over 30 years of residential and commercial fencing excellence in Rochester, NY. We don't cut corners, and we don't dump dry concrete mix into dry dirt holes. Aaron Reese and Scott Blain have been setting deep, rugged perimeters and custom concrete flatwork across Western New York since 1992.
+                Over 30 years of residential and commercial fencing excellence in Rochester, NY. We don't cut corners, and we don't dump dry concrete mix into dry dirt holes. Anthony Reese and Scott Blain have been setting deep, rugged perimeters and custom concrete flatwork across Western New York since 1992.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -361,7 +361,7 @@ export default function AAFencingSite() {
           </div>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <a href={`tel:${BUSINESS_INFO.contacts.commercial.phone}`} className="bg-[#1f8b2e] hover:bg-[#177a25] text-white font-bold px-8 py-3.5 rounded-lg transition-all shadow-xl shadow-[#1f8b2e]/30 transform active:scale-95">
-              Call Aaron — {BUSINESS_INFO.contacts.commercial.phone}
+              Call Anthony — {BUSINESS_INFO.contacts.commercial.phone}
             </a>
             <a href={`tel:${BUSINESS_INFO.contacts.residential.phone}`} className="border border-white/20 bg-white/5 hover:bg-white/10 text-white font-semibold px-8 py-3.5 rounded-lg transition-all">
               Call CJ — {BUSINESS_INFO.contacts.residential.phone}
@@ -384,7 +384,7 @@ export default function AAFencingSite() {
             More Than Just Post Setting
           </motion.h2>
           <p className="text-[#1c1c1c]/60 text-sm mt-1">
-            Aaron, Scott, and our crew handle the full scope so you don't need to wrangle 4 different contractors.
+            Anthony, Scott, and our crew handle the full scope so you don't need to wrangle 4 different contractors.
           </p>
         </div>
 
@@ -537,7 +537,7 @@ export default function AAFencingSite() {
           href={`tel:${BUSINESS_INFO.contacts.commercial.phone}`}
           className="flex-1 bg-white/10 border border-white/15 text-white rounded-xl py-3 px-2 text-center text-xs font-bold tracking-tight flex items-center justify-center gap-1.5"
         >
-          Aaron (Comm)
+          Anthony (Comm)
         </a>
         <a
           href={`tel:${BUSINESS_INFO.contacts.landscapeConcrete.phone}`}
