@@ -298,21 +298,21 @@ export default function AAFencingSite() {
           onTouchStart={() => setIsDragging(true)}
           onTouchEnd={() => setIsDragging(false)}
         >
-          {/* Before — residential-2.png */}
+          {/* After — fence-2.jpeg (full background, right side) */}
           <div className="absolute inset-0">
-            <img src="/images/site/residential-2.png" alt="Before — yard without fence" className="w-full h-full object-cover brightness-90" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-            <span className="absolute bottom-4 right-4 text-xs uppercase tracking-widest font-bold bg-black/50 text-white px-2 py-0.5 rounded">Before</span>
+            <img src="/images/gallery/fence-2.jpeg" alt="After — completed fence installation" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+            <span className="absolute bottom-4 right-4 text-xs uppercase tracking-widest font-bold bg-[#1f8b2e] text-white px-2 py-0.5 rounded">After</span>
           </div>
 
-          {/* After — fence-2.jpeg */}
+          {/* Before — residential-2.png (clipped left side) */}
           <div
             className="absolute inset-y-0 left-0 right-0 overflow-hidden pointer-events-none"
             style={{ clipPath: `polygon(0 0, ${sliderPos}% 0, ${sliderPos}% 100%, 0 100%)` }}
           >
-            <img src="/images/gallery/fence-2.jpeg" alt="After — completed fence installation" className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-            <span className="absolute bottom-4 left-4 text-xs uppercase tracking-widest font-bold bg-[#1f8b2e] text-white px-2 py-0.5 rounded">After</span>
+            <img src="/images/site/residential-2.png" alt="Before — yard without fence" className="w-full h-full object-cover brightness-90" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+            <span className="absolute bottom-4 left-4 text-xs uppercase tracking-widest font-bold bg-black/50 text-white px-2 py-0.5 rounded">Before</span>
           </div>
 
           {/* Divider */}
