@@ -55,14 +55,14 @@ export default function AAFencingSite() {
             <span className="text-[10px] text-white/50 tracking-widest uppercase block -mt-1">w/ Scott's Landscape & Fence</span>
           </div>
         </div>
-        <div className="hidden md:flex space-x-6 items-center text-sm font-medium text-white/80">
+        <nav aria-label="Main navigation" className="hidden md:flex space-x-6 items-center text-sm font-medium text-white/80">
           <a href="#gallery" className="hover:text-[#1f8b2e] transition-colors">Our Work</a>
           <a href="#reviews" className="hover:text-[#1f8b2e] transition-colors">Reviews</a>
           <a href="#services" className="hover:text-[#1f8b2e] transition-colors">Services</a>
           <a href="#contact" className="bg-[#1f8b2e] hover:bg-[#177a25] text-white px-4 py-2 rounded font-bold transition-all transform active:scale-95 shadow-lg shadow-[#1f8b2e]/20">
             Get an Estimate
           </a>
-        </div>
+        </nav>
         <div className="md:hidden text-xs bg-white/10 text-white/70 px-2.5 py-1 rounded border border-white/15">
           Est. 1992
         </div>
