@@ -26,9 +26,10 @@ const BUSINESS_INFO = {
   ]
 };
 
+const FENCE_TYPES = ["vinyl privacy fence", "chain link fence", "wood fence", "ornamental iron fence", "commercial security fence", "residential fence", "pool fence", "privacy fence", "cedar fence", "picket fence", "farm fence", "bollard installation", "fence repair", "fence replacement", "custom fence", "backyard fence", "property line fence", "decorative fence"];
 const GALLERY_PHOTOS = Array.from({ length: 18 }, (_, i) => ({
   src: `/images/gallery/fence-${i + 1}.jpeg`,
-  alt: `Fencing project ${i + 1} — AA Fencing LLC, Rochester NY`
+  alt: `${FENCE_TYPES[i]} installation by AA Fencing LLC — fence company in Rochester, NY`
 }));
 
 export default function AAFencingSite() {
@@ -97,9 +98,9 @@ export default function AAFencingSite() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-none text-white"
               >
-                Built to Outlast <br />
+                Rochester's Trusted <br />
                 <span className="text-[#1f8b2e]">
-                  Upstate Winters.
+                  Fence Company.
                 </span>
               </motion.h1>
               <motion.p
@@ -190,7 +191,7 @@ export default function AAFencingSite() {
             transition={{ duration: 0.4 }}
             className="text-3xl font-bold tracking-tight"
           >
-            Our Fencing Work
+            Fence Installations Across Rochester
           </motion.h2>
           <p className="text-[#1c1c1c]/60 text-sm mt-2">
             Every photo here is a real job completed by our crew across Monroe County and Western NY. Tap any image to see full size.
@@ -334,7 +335,7 @@ export default function AAFencingSite() {
             transition={{ duration: 0.4 }}
             className="text-3xl font-bold tracking-tight"
           >
-            Request a Free Quote Today
+            Get a Free Fence Estimate in Rochester
           </motion.h2>
           <p className="text-white/50 text-sm mt-3 max-w-xl mx-auto leading-relaxed">
             Every yard is different. We don't believe in cookie-cutter pricing — we come out, walk your property, and give you an honest quote with no hidden fees. Just like Scott's Landscape has done since 1992.
@@ -378,7 +379,7 @@ export default function AAFencingSite() {
             transition={{ duration: 0.4 }}
             className="text-3xl font-bold tracking-tight"
           >
-            More Than Just Post Setting
+            Rochester Fence Company Services
           </motion.h2>
           <p className="text-[#1c1c1c]/60 text-sm mt-1">
             Union contractor serving commercial and residential clients — our crew handles the full scope so you don't need to wrangle 4 different contractors.
@@ -433,7 +434,7 @@ export default function AAFencingSite() {
               transition={{ duration: 0.4 }}
               className="text-2xl sm:text-3xl font-bold tracking-tight"
             >
-              Backed by Genuine Local Reputation
+              Rochester's Top-Rated Fence Company
             </motion.h2>
             <div className="mt-3 inline-flex items-center gap-2 bg-white border border-black/10 rounded-full px-4 py-2 shadow-sm">
               <div className="flex text-[#1f8b2e] text-lg">
