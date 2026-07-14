@@ -131,7 +131,10 @@ export default function AAFencingSite() {
                 transition={{ duration: 0.5, delay: 0.5 }}
                 className="pt-4"
               >
-                <img src="/images/site/sleekfence-badge.png" alt="Sleekfence Certified Contractor" className="h-20 w-auto opacity-70" />
+                <div className="flex items-center gap-4 flex-wrap">
+                  <img src="/images/site/sleekfence-badge.png" alt="Sleekfence Certified Contractor" className="h-20 w-auto opacity-70" />
+                  <img src="/images/site/elite-fence-logo.png" alt="Elite Fence Products Authorized Dealer" className="h-16 w-auto opacity-80 bg-white/10 rounded-lg px-3 py-1" />
+                </div>
               </motion.div>
             </div>
 
@@ -172,10 +175,10 @@ export default function AAFencingSite() {
         {/* TICKER */}
         <div className="relative bg-black/80 border-t border-white/10 py-3 overflow-hidden select-none whitespace-nowrap">
           <div className="inline-block animate-marquee text-xs tracking-widest text-white/40 uppercase">
-            UNION CONTRACTOR • COMMERCIAL FENCING • BOLLARDS • SIGNAGE • 36-INCH DEEP FROST-LINE POSTS • REAL WET CONCRETE MIXES • LICENSED & INSURED MONROE COUNTY CONTRACTORS • 30+ YEARS IN ROCHESTER • WOOD • VINYL • CHAIN LINK • ORNAMENTAL •&nbsp;
+            UNION CONTRACTOR • ELITE FENCE PRODUCTS AUTHORIZED DEALER • COMMERCIAL FENCING • BOLLARDS • SIGNAGE • 36-INCH DEEP FROST-LINE POSTS • REAL WET CONCRETE MIXES • LICENSED & INSURED MONROE COUNTY CONTRACTORS • 30+ YEARS IN ROCHESTER • WOOD • VINYL • CHAIN LINK • ORNAMENTAL ALUMINUM •&nbsp;
           </div>
           <div className="inline-block animate-marquee text-xs tracking-widest text-white/40 uppercase">
-            UNION CONTRACTOR • COMMERCIAL FENCING • BOLLARDS • SIGNAGE • 36-INCH DEEP FROST-LINE POSTS • REAL WET CONCRETE MIXES • LICENSED & INSURED MONROE COUNTY CONTRACTORS • 30+ YEARS IN ROCHESTER • WOOD • VINYL • CHAIN LINK • ORNAMENTAL •&nbsp;
+            UNION CONTRACTOR • ELITE FENCE PRODUCTS AUTHORIZED DEALER • COMMERCIAL FENCING • BOLLARDS • SIGNAGE • 36-INCH DEEP FROST-LINE POSTS • REAL WET CONCRETE MIXES • LICENSED & INSURED MONROE COUNTY CONTRACTORS • 30+ YEARS IN ROCHESTER • WOOD • VINYL • CHAIN LINK • ORNAMENTAL ALUMINUM •&nbsp;
           </div>
         </div>
       </section>
@@ -419,6 +422,52 @@ export default function AAFencingSite() {
               </div>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      {/* AUTHORIZED DEALER — Elite Fence Products */}
+      <section className="py-16 px-4 bg-black text-white border-t border-white/10">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-8">
+            <span className="text-[#1f8b2e] text-xs uppercase tracking-wider block mb-1">Authorized Dealer</span>
+            <motion.h2
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.4 }}
+              className="text-2xl sm:text-3xl font-bold tracking-tight"
+            >
+              Elite Fence Products
+            </motion.h2>
+          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col md:flex-row items-center gap-8 bg-white/5 border border-white/10 rounded-2xl p-8"
+          >
+            <div className="flex-shrink-0">
+              <img src="/images/site/elite-fence-logo.png" alt="Elite Fence Products, Inc." className="h-28 sm:h-36 w-auto bg-white rounded-xl p-4" />
+            </div>
+            <div className="text-center md:text-left">
+              <h3 className="text-lg font-bold mb-2">AA Fencing LLC is a Proud Authorized Dealer of Elite Fence Products</h3>
+              <p className="text-white/60 text-sm leading-relaxed mb-3">
+                Elite Fence Products, Inc. is an American manufacturer of premium ornamental aluminum fencing and railing systems, established in 1986. With manufacturing facilities across the U.S., Elite delivers powder-coated aluminum fencing in residential, commercial, industrial, and heavy-industrial grades — all backed by a Limited Lifetime Warranty.
+              </p>
+              <p className="text-white/60 text-sm leading-relaxed mb-4">
+                As an authorized dealer, AA Fencing LLC can supply and install the full Elite product line — including their Avalanche concealed fastener systems, ZipTrack cantilever gates, COREGard architectural products, and custom ornamental fencing in 9+ colors.
+              </p>
+              <a
+                href="https://www.elitefence.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-[#1f8b2e] hover:bg-[#177a25] text-white font-bold px-5 py-2.5 rounded-lg text-sm transition-colors"
+              >
+                View Elite Fence Products →
+              </a>
+            </div>
+          </motion.div>
         </div>
       </section>
 
