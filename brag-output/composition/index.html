@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'DisplayCondensed'; src: local('Impact'), local('Haettenschweiler'), local('Arial Narrow Bold'), local('Franklin Gothic Bold'); }
+      @font-face { font-family: 'QuoteSerif'; src: local('Georgia'), local('Times New Roman'); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 1920px; height: 1080px; overflow: hidden; background: #000;
+        font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+      }
+      #root { width: 100%; height: 100%; position: relative; background: #000; }
+
+      .clip { position: absolute; inset: 0; }
+
+      .display {
+        font-family: 'DisplayCondensed', sans-serif;
+        text-transform: uppercase; letter-spacing: 0.005em; line-height: 0.92;
+        color: #fff;
+      }
+      .green { color: #1f8b2e; }
+      .label {
+        font-family: "Helvetica Neue", Arial, sans-serif; font-weight: 800;
+        text-transform: uppercase; letter-spacing: 0.14em; color: #fff;
+      }
+
+      /* photo layers */
+      .photo { position: absolute; inset: 0; background-size: cover; background-position: center; will-change: transform; }
+      .scrim { position: absolute; inset: 0; }
+      .scrim-l { background: linear-gradient(90deg, rgba(0,0,0,.85) 0%, rgba(0,0,0,.55) 45%, rgba(0,0,0,.15) 100%); }
+      .scrim-b { background: linear-gradient(0deg, rgba(0,0,0,.8) 0%, rgba(0,0,0,.1) 42%, rgba(0,0,0,0) 70%); }
+      .scrim-full { background: rgba(0,0,0,.4); }
+
+      /* green rail */
+      .rail { position: absolute; height: 8px; background: #1f8b2e; transform-origin: left center;
+        box-shadow: 0 2px 12px rgba(31,139,46,.35); }
+
+      /* beat glow */
+      #glow { position: absolute; inset: 0; pointer-events: none;
+        background: radial-gradient(120% 90% at 50% 108%, rgba(31,139,46,.28), rgba(31,139,46,0) 55%); opacity: 0; }
+
+      .dot { width: 16px; height: 16px; border-radius: 50%; background: #1f8b2e; box-shadow: 0 0 18px rgba(31,139,46,.9); }
+
+      .tag { font-family: "Helvetica Neue", Arial, sans-serif; font-weight: 800; text-transform: uppercase;
+        letter-spacing: .12em; font-size: 26px; color: #fff; padding: 8px 16px; border-radius: 6px; }
+
+      .cred { display: flex; align-items: center; gap: 22px; }
+      .cred .bullet { width: 18px; height: 18px; background: #1f8b2e; border-radius: 3px; flex: none; box-shadow: 0 0 14px rgba(31,139,46,.7); }
+
+      .card { background: #0b0b0b; border: 1px solid rgba(255,255,255,.12); border-radius: 22px; }
+    </style>
+
+<script>
+window.__tailwindReady=new Promise(function(resolve){
+var loaded=document.readyState==="complete";var resolved=false;var observer;
+function readTailwindCss(){var styles=document.querySelectorAll("style");for(var i=styles.length-1;i>=0;i--){var text=styles[i].textContent||"";if(text.indexOf("tailwindcss v")!==-1)return text;}return "";}
+function finish(){if(resolved||!loaded||!readTailwindCss())return;resolved=true;if(observer)observer.disconnect();resolve(true);}
+observer=new MutationObserver(finish);observer.observe(document.documentElement,{childList:true,subtree:true,characterData:true});
+if(loaded){finish();}else{window.addEventListener("load",function(){loaded=true;finish();},{once:true});}
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.2.4/dist/index.global.js" integrity="sha384-v5YF9xS+gLRWdvrQ0u/WRbCkjSIH0NjHIPe8tBL1ZRrmI7PiSH6LLdzs0aAIMCuh" crossorigin="anonymous"></script>
+</head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="22.2" data-width="1920" data-height="1080">
+
+      <!-- persistent beat glow -->
+      <div id="glow"></div>
+
+      <!-- ================= SCENE 1 — HOOK ================= -->
+      <div class="clip" data-start="0" data-duration="3.7" data-track-index="0">
+        <div class="photo" id="s1photo" style="background-image:url('assets/img/hero-slider.png');"></div>
+        <div class="scrim scrim-l"></div>
+        <div class="scrim scrim-b"></div>
+        <div class="rail" id="s1rail" style="top:360px; left:180px; width:520px;"></div>
+        <div style="position:absolute; left:180px; top:372px;">
+          <div class="display" id="s1line1" style="font-size:104px; line-height:1;">Rochester's Trusted</div>
+          <div class="display green" id="s1line2" style="font-size:148px; line-height:1; margin-top:26px;">Fence Company</div>
+        </div>
+        <div id="s1sub" style="position:absolute; left:184px; top:742px; display:flex; align-items:center; gap:16px;">
+          <span class="dot"></span>
+          <span class="label" style="font-size:26px; color:rgba(255,255,255,.85);">Rochester, NY &nbsp;&bull;&nbsp; Union Contractor Since 1992</span>
+        </div>
+      </div>
+
+      <!-- ================= SCENE 2 — MONTAGE ================= -->
+      <div class="clip" data-start="3.7" data-duration="5.8" data-track-index="0" style="background:#000;">
+        <!-- photo 1 -->
+        <div class="photo" id="m1" style="background-image:url('assets/img/residential.png');"></div>
+        <!-- photo 2 -->
+        <div class="photo" id="m2" style="background-image:url('assets/img/commercial.png'); opacity:0;"></div>
+        <!-- photo 3 -->
+        <div class="photo" id="m3" style="background-image:url('assets/img/landscape.png'); opacity:0;"></div>
+        <div class="scrim scrim-b"></div>
+
+        <!-- labels -->
+        <div id="ml1" style="position:absolute; left:120px; bottom:120px; display:flex; align-items:center; gap:20px;">
+          <span style="width:10px; height:70px; background:#1f8b2e; display:block; box-shadow:0 0 16px rgba(31,139,46,.7);"></span>
+          <span class="display" style="font-size:82px;">Vinyl Privacy</span>
+        </div>
+        <div id="ml2" style="position:absolute; left:120px; bottom:120px; display:flex; align-items:center; gap:20px; opacity:0;">
+          <span style="width:10px; height:70px; background:#1f8b2e; display:block; box-shadow:0 0 16px rgba(31,139,46,.7);"></span>
+          <span class="display" style="font-size:82px;">Commercial Security &amp; Bollards</span>
+        </div>
+        <div id="ml3" style="position:absolute; left:120px; bottom:120px; display:flex; align-items:center; gap:20px; opacity:0;">
+          <span style="width:10px; height:70px; background:#1f8b2e; display:block; box-shadow:0 0 16px rgba(31,139,46,.7);"></span>
+          <span class="display" style="font-size:82px;">Stamped Concrete &amp; Landscaping</span>
+        </div>
+      </div>
+
+      <!-- ================= SCENE 3 — BEFORE / AFTER ================= -->
+      <div class="clip" data-start="9.5" data-duration="3.7" data-track-index="0" style="background:#000;">
+        <!-- after (full bg) -->
+        <div class="photo" style="background-image:url('assets/img/fence-2.jpeg');"></div>
+        <div class="scrim scrim-b"></div>
+        <!-- before layer — slides out left (transform-safe) to reveal after -->
+        <div id="baBefore" style="position:absolute; inset:0; overflow:hidden;">
+          <div class="photo" style="background-image:url('assets/img/residential-2.png'); filter:brightness(.92);"></div>
+          <div class="scrim scrim-b"></div>
+          <div id="baTagBefore" class="tag" data-layout-allow-overflow style="position:absolute; left:60px; bottom:60px; background:rgba(0,0,0,.6);">Before</div>
+          <!-- divider rides the right edge of the before panel -->
+          <div style="position:absolute; top:0; bottom:0; right:0; width:6px; background:#1f8b2e; box-shadow:0 0 18px rgba(31,139,46,.55);"></div>
+        </div>
+        <div id="baTagAfter" class="tag green" style="position:absolute; right:60px; bottom:60px; background:rgba(0,0,0,.6); opacity:0;">After</div>
+        <div id="baTitle" class="label" style="position:absolute; left:120px; top:90px; font-size:34px; color:#fff;">See the Transformation</div>
+      </div>
+
+      <!-- ================= SCENE 4 — CREDENTIALS ================= -->
+      <div class="clip" data-start="13.2" data-duration="3.7" data-track-index="0" style="background:#0a0a0a;">
+        <div style="position:absolute; left:160px; top:300px; display:flex; flex-direction:column; gap:44px;">
+          <div class="cred" id="c1"><span class="bullet"></span><span class="display" style="font-size:78px;">Union Contractor Since 1992</span></div>
+          <div class="cred" id="c2"><span class="bullet"></span><span class="display" style="font-size:78px;">Elite Fence Products<span class="green"> Authorized Dealer</span></span></div>
+          <div class="cred" id="c3"><span class="bullet"></span><span class="display" style="font-size:78px;">36&Prime; Frost-Line Posts. Real Wet Concrete.</span></div>
+        </div>
+      </div>
+
+      <!-- ================= SCENE 5 — PROOF ================= -->
+      <div class="clip" data-start="16.9" data-duration="2.6" data-track-index="0" style="background:#0a0a0a;">
+        <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+          <div id="pStars" class="green" style="font-size:120px; letter-spacing:12px; opacity:0;">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div id="pRate" style="opacity:0; text-align:center; margin-top:6px;">
+            <span class="display" style="font-size:110px;">4.25 / 5</span>
+            <div class="label" style="font-size:30px; color:rgba(255,255,255,.6); margin-top:8px;">From 53 Reviews Across Rochester</div>
+          </div>
+          <div id="pQuote" style="opacity:0; text-align:center; margin-top:40px; max-width:1200px;">
+            <div style="font-family:'QuoteSerif',serif; font-style:italic; font-size:44px; color:#fff;">&ldquo;Even better than we hoped!&rdquo;</div>
+            <div class="label" style="font-size:24px; color:#1f8b2e; margin-top:14px;">Rebecca B. &nbsp;&bull;&nbsp; Chili, NY</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= SCENE 6 — CLOSE ================= -->
+      <div class="clip" data-start="19.5" data-duration="2.7" data-track-index="0" style="background:#000;">
+        <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+          <div class="rail" id="s6rail" style="position:relative; width:420px; margin-bottom:34px;"></div>
+          <div id="s6est" class="display" style="font-size:210px; opacity:0;">Est. <span class="green">1992</span></div>
+          <div id="s6city" class="label" style="font-size:38px; color:rgba(255,255,255,.75); opacity:0; margin-top:8px;">Rochester, NY &nbsp;&bull;&nbsp; Western New York</div>
+          <img id="s6logo" src="assets/img/AA-Logo-03.png" alt="AA Fencing LLC" style="height:150px; margin-top:40px; opacity:0;" />
+          <div id="s6url" class="display green" style="font-size:60px; opacity:0; margin-top:18px; letter-spacing:.02em;">aafencing-llc.com</div>
+        </div>
+      </div>
+
+      <!-- ================= AUDIO ================= -->
+      <audio id="music" class="clip" data-start="0" data-duration="22.2" data-track-index="1" data-volume="0.62" src="assets/music/track.mp3"></audio>
+
+      <!-- SFX (spread across tracks to avoid overlap) -->
+      <audio id="sfx-hook-impact" data-start="1.6"   data-duration="1.0" data-track-index="2" data-volume="0.9" src="assets/sfx/impact-heavy.ogg"></audio>
+      <audio id="sfx-hook-settle" data-start="2.62"  data-duration="0.8" data-track-index="3" data-volume="0.7" src="assets/sfx/settle.ogg"></audio>
+      <audio id="sfx-thunk-1"     data-start="3.7"   data-duration="0.8" data-track-index="2" data-volume="0.85" src="assets/sfx/metal-thunk.ogg"></audio>
+      <audio id="sfx-thunk-2"     data-start="5.8"   data-duration="0.8" data-track-index="2" data-volume="0.85" src="assets/sfx/metal-thunk.ogg"></audio>
+      <audio id="sfx-thunk-3"     data-start="7.91"  data-duration="0.8" data-track-index="2" data-volume="0.85" src="assets/sfx/metal-thunk.ogg"></audio>
+      <audio id="sfx-sweep"       data-start="10.4"  data-duration="1.4" data-track-index="3" data-volume="0.6" src="assets/sfx/sweep.ogg"></audio>
+      <audio id="sfx-after-pop"   data-start="12.65" data-duration="0.8" data-track-index="2" data-volume="0.8" src="assets/sfx/metal-thunk.ogg"></audio>
+      <audio id="sfx-tick-1"      data-start="13.18" data-duration="0.5" data-track-index="3" data-volume="0.55" src="assets/sfx/tick.ogg"></audio>
+      <audio id="sfx-tick-2"      data-start="14.22" data-duration="0.5" data-track-index="3" data-volume="0.55" src="assets/sfx/tick.ogg"></audio>
+      <audio id="sfx-tick-3"      data-start="15.28" data-duration="0.5" data-track-index="3" data-volume="0.55" src="assets/sfx/tick.ogg"></audio>
+      <audio id="sfx-shimmer"     data-start="17.0"  data-duration="0.9" data-track-index="2" data-volume="0.7" src="assets/sfx/shimmer.ogg"></audio>
+      <audio id="sfx-close-impact" data-start="20.02" data-duration="1.4" data-track-index="2" data-volume="1.0" src="assets/sfx/impact-heavy.ogg"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      /* ---------- persistent beat glow (~114 BPM, 0.52s cycle) ---------- */
+      tl.fromTo("#glow", { opacity: 0.05 }, { opacity: 0.32, duration: 0.26, ease: "sine.inOut", repeat: 84, yoyo: true }, 0);
+
+      /* ================= SCENE 1 — HOOK ================= */
+      tl.fromTo("#s1photo", { scale: 1.12, x: -30 }, { scale: 1.2, x: 20, duration: 3.7, ease: "none" }, 0);
+      tl.fromTo("#s1rail",  { scaleX: 0 }, { scaleX: 1, duration: 0.55, ease: "power3.out" }, 0.35);
+      // beat-locked: 1.60s — headline slam
+      tl.fromTo("#s1line1", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.45, ease: "power4.out" }, 1.6);
+      tl.fromTo("#s1line2", { opacity: 0, y: 55, scale: 1.06 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "power4.out" }, 1.72);
+      tl.fromTo("#s1sub",   { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 2.62);
+
+      /* ================= SCENE 2 — MONTAGE ================= */
+      // photo 1 + label — beat-locked 3.70
+      tl.fromTo("#m1",  { scale: 1.06 }, { scale: 1.16, duration: 2.1, ease: "none" }, 3.7);
+      tl.fromTo("#ml1", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 3.78);
+      tl.to("#ml1", { opacity: 0, duration: 0.25 }, 5.7);
+      // photo 2 + label — beat-grid 5.80
+      tl.set("#m2", { opacity: 1 }, 5.8);
+      tl.fromTo("#m2",  { scale: 1.06 }, { scale: 1.16, duration: 2.11, ease: "none" }, 5.8);
+      tl.fromTo("#ml2", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 5.88);
+      tl.to("#ml2", { opacity: 0, duration: 0.25 }, 7.8);
+      // photo 3 + label — beat-grid 7.91
+      tl.set("#m3", { opacity: 1 }, 7.91);
+      tl.fromTo("#m3",  { scale: 1.06 }, { scale: 1.14, duration: 1.59, ease: "none" }, 7.91);
+      tl.fromTo("#ml3", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 7.99);
+
+      /* ================= SCENE 3 — BEFORE / AFTER ================= */
+      tl.fromTo("#baTitle", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 9.6);
+      // before panel slides out left (transform-safe) revealing the after underneath
+      tl.set("#baBefore", { x: 0 }, 9.5);
+      tl.to("#baBefore", { x: -1920, duration: 2.0, ease: "power2.inOut" }, 10.4);
+      tl.to("#baTagBefore", { opacity: 0, duration: 0.4 }, 11.6);
+      // beat-locked: 12.65 — AFTER pop
+      tl.fromTo("#baTagAfter", { opacity: 0, scale: 1.3 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2)" }, 12.5);
+
+      /* ================= SCENE 4 — CREDENTIALS ================= */
+      // beat-grid readable text: every-other-beat, full-set holds
+      tl.fromTo("#c1", { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 13.18);
+      tl.fromTo("#c2", { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 14.22);
+      tl.fromTo("#c3", { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out" }, 15.28);
+
+      /* ================= SCENE 5 — PROOF ================= */
+      tl.fromTo("#pStars", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.6)" }, 17.0);
+      tl.fromTo("#pRate",  { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45, ease: "power2.out" }, 17.35);
+      tl.fromTo("#pQuote", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 17.9);
+
+      /* ================= SCENE 6 — CLOSE ================= */
+      tl.fromTo("#s6rail", { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 19.6);
+      // beat-locked: 20.02 — EST 1992 impact
+      tl.fromTo("#s6est",  { opacity: 0, scale: 1.25 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power4.out" }, 20.02);
+      tl.fromTo("#s6city", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 20.5);
+      tl.fromTo("#s6logo", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power2.out" }, 20.9);
+      tl.fromTo("#s6url",  { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 21.2);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
