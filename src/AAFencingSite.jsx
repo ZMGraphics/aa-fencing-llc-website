@@ -587,6 +587,11 @@ export default function AAFencingSite() {
         <div className="mt-4 text-center text-xs text-[#1c1c1c]/40">
           AA Fencing LLC • PO Box 60406 • Rochester, NY 14606
         </div>
+        <nav aria-label="Legal" className="mt-3 flex flex-wrap justify-center gap-x-6 gap-y-1">
+          <a href="/privacy" className="text-xs text-[#1c1c1c]/55 hover:text-[#1f8b2e] underline underline-offset-4 py-2">Privacy policy</a>
+          <a href="/terms" className="text-xs text-[#1c1c1c]/55 hover:text-[#1f8b2e] underline underline-offset-4 py-2">Terms of use</a>
+          <a href="/accessibility" className="text-xs text-[#1c1c1c]/55 hover:text-[#1f8b2e] underline underline-offset-4 py-2">Accessibility</a>
+        </nav>
       </section>
 
       {/* MOBILE BOTTOM NAV */}

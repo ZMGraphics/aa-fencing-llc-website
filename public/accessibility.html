@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Accessibility | AA Fencing LLC</title>
+<meta name="description" content="How AA Fencing LLC works to keep this website usable for everyone." />
+<meta name="theme-color" content="#1c1c1c" />
+<meta name="robots" content="index, follow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root { --green:#1f8b2e; --green-dark:#177a25; --ink:#1c1c1c; --paper:#ffffff; --mute:#f5f5f5; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:'Poppins',system-ui,sans-serif; background:var(--paper); color:var(--ink); }
+  a { color:var(--green-dark); font-weight:600; }
+  .wrap { max-width:min(68ch, calc(100% - 2.5rem)); margin:0 auto; }
+  header.bar { background:var(--ink); padding:1.1rem 0; }
+  header.bar .wrap { max-width:1100px; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+  header.bar img { height:48px; width:auto; display:block; }
+  header.bar a.home { color:#fff; font-weight:700; font-size:.85rem; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; }
+  .hero { background:var(--ink); color:#fff; padding:2.5rem 0 3.25rem; }
+  .hero .wrap { max-width:1100px; }
+  .eyebrow { color:var(--green); font-weight:700; font-size:.78rem; letter-spacing:.16em; text-transform:uppercase; margin:0; }
+  .hero h1 { font-size:clamp(2rem,5vw,3rem); margin:.5rem 0 0; line-height:1.1; }
+  .hero .date { color:rgba(255,255,255,.6); margin:.9rem 0 0; font-size:.95rem; }
+  main { padding:3rem 0 4rem; }
+  h2 { font-size:1.3rem; margin:2.5rem 0 0; }
+  h2:first-child { margin-top:0; }
+  p, li { font-size:1.0625rem; line-height:1.7; color:#3c3c40; }
+  p { margin:1rem 0 0; }
+  ul { margin:1rem 0 0; padding-left:1.25rem; }
+  li { margin-top:.5rem; }
+  strong { color:var(--ink); }
+  .back { display:inline-block; margin-top:3rem; font-weight:700; }
+  footer.bar { background:var(--mute); padding:2rem 0; margin-top:1rem; }
+  footer.bar .wrap { max-width:1100px; display:flex; flex-wrap:wrap; gap:1rem 1.5rem; justify-content:space-between; align-items:center; }
+  footer.bar p { margin:0; font-size:.85rem; color:#6a6a6e; }
+  footer.bar nav { display:flex; flex-wrap:wrap; gap:1.25rem; }
+  footer.bar nav a { font-size:.9rem; padding:.5rem 0; }
+  a:focus-visible, input:focus-visible { outline:3px solid var(--green); outline-offset:3px; }
+</style>
+</head>
+<body>
+<header class="bar">
+  <div class="wrap">
+    <a href="/"><img src="/images/site/AA-Logo-02.png" alt="AA Fencing LLC" /></a>
+    <a class="home" href="/">&larr; Back to site</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Legal</p>
+    <h1>Accessibility</h1>
+    <p class="date">Effective date: 23 October 2026</p>
+  </div>
+</section>
+
+<main>
+  <div class="wrap">
+    <p>
+      AA Fencing LLC wants this website to be usable by everyone, including people who use screen readers, keyboard
+      navigation, magnification or reduced motion settings.
+    </p>
+
+    <h2>What we aim for</h2>
+    <p>
+      We build to the Web Content Accessibility Guidelines (WCAG) 2.1 at Level AA. In practice that means:
+    </p>
+    <ul>
+      <li>Text and background colors are tested for contrast.</li>
+      <li>Every control can be reached and operated with a keyboard, with a visible focus ring.</li>
+      <li>Images that carry meaning have written descriptions.</li>
+      <li>Headings follow a logical order.</li>
+      <li>Motion is reduced when your device asks for reduced motion.</li>
+      <li>Tap targets are sized for use on a phone.</li>
+    </ul>
+
+    <h2>Known limits</h2>
+    <p>
+      Many photographs on this site are job-site pictures of completed fence installations, taken in the
+      field, so their framing and lighting vary. We describe each one in text.
+    </p>
+
+    <h2>Tell us if something does not work</h2>
+    <p>
+      If any part of this site is hard to use, email <a href="mailto:Anthony@scottslfc.com">Anthony@scottslfc.com</a> or call
+      <a href="tel:+15035605812">(503) 560-5812</a>. Tell us the page and what happened and we will fix it or give you
+      the information another way.
+    </p>
+
+    <h2>Getting service another way</h2>
+    <p>
+      You never have to use this website to do business with us. Call and we will take care of it on the
+      phone.
+    </p>
+
+    <a class="back" href="/">&larr; Back to AA Fencing LLC</a>
+  </div>
+</main>
+
+<footer class="bar">
+  <div class="wrap">
+    <p>&copy; AA Fencing LLC &bull; PO Box 60406 &bull; Rochester, NY 14606</p>
+    <nav aria-label="Legal">
+      <a href="/privacy">Privacy policy</a>
+      <a href="/terms">Terms of use</a>
+      <a href="/accessibility">Accessibility</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
