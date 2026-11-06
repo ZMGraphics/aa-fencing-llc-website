@@ -1,0 +1,16 @@
+{
+  "name": "aa-fencing-reel",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "render": "remotion render src/index.jsx Reel out/reel.mp4",
+    "still": "remotion still src/index.jsx Reel"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.380",
+    "@remotion/google-fonts": "4.0.380",
+    "remotion": "4.0.380",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  }
+}
